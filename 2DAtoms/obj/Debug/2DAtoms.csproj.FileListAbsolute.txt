@@ -1,0 +1,6 @@
+c:\users\isaac\documents\visual studio 2013\Projects\2DAtoms\2DAtoms\bin\Debug\2DAtoms.exe.config
+C:\Users\Isaac\documents\visual studio 2013\Projects\2DAtoms\2DAtoms\obj\Debug\2DAtoms.csprojResolveAssemblyReference.cache
+C:\Users\Isaac\documents\visual studio 2013\Projects\2DAtoms\2DAtoms\bin\Debug\2DAtoms.exe
+C:\Users\Isaac\documents\visual studio 2013\Projects\2DAtoms\2DAtoms\bin\Debug\2DAtoms.pdb
+C:\Users\Isaac\documents\visual studio 2013\Projects\2DAtoms\2DAtoms\obj\Debug\2DAtoms.exe
+C:\Users\Isaac\documents\visual studio 2013\Projects\2DAtoms\2DAtoms\obj\Debug\2DAtoms.pdb
