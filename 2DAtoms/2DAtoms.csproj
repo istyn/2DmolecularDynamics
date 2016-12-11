@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Event.cs" />
     <Compile Include="Particle.cs" />
+    <Compile Include="PriorityQueue.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
