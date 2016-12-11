@@ -8,9 +8,9 @@ namespace _2DAtoms
 {
     class Event : IComparable
     {
-        private double time;
+        private double time;            //invarient - used as priority by priority queue
         private Particle a, b;
-        private int countA, countB;
+        private int countA, countB;     //number of events since this was added
 
         public Event(double t,Particle a, Particle b)
         {

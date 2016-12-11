@@ -11,8 +11,8 @@ namespace _2DAtoms
         double rX, rY;  //position in X,Y
         double vX, vY;  //velocity in X,Y
         double mass;
-        double r;
-        int count = 0;
+        double r;       //radius
+        int count = 0;  //total number of collisions with wall or other particle
 
         public Particle(double x, double y, double vX, double vY, double mass, double r)
         {
@@ -58,10 +58,10 @@ namespace _2DAtoms
         //this Particle is i, that Particle is j
         public double collides(Particle j)
         {
-            double dx = j.rX - rX;
-            double dy = j.rY - rY;
-            double dvx = j.vX - vX;
-            double dvy = j.vY - vY;
+            double dx = j.rX - rX;                                      //difference in x position
+            double dy = j.rY - rY;                                      //difference in y position
+            double dvx = j.vX - vX;                                     //difference in x velocity
+            double dvy = j.vY - vY;                                     //difference in y velocity
             double drdr = Math.Round((dx * dx) + (dy * dy),10);
             double dvdv = Math.Round((dvx * dvx) + (dvy * dvy),10);
             double dvdr = Math.Round((dvx * dx) + (dvy * dy),10);
