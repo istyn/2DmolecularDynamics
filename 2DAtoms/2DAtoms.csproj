@@ -35,6 +35,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,6 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Event.cs" />
+    <Compile Include="OutputWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OutputWindow.Designer.cs">
+      <DependentUpon>OutputWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Particle.cs" />
     <Compile Include="PriorityQueue.cs" />
     <Compile Include="Program.cs" />
@@ -50,6 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OutputWindow.resx">
+      <DependentUpon>OutputWindow.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
