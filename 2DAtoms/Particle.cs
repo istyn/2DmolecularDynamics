@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 
 namespace _2DAtoms
 {
@@ -14,7 +11,16 @@ namespace _2DAtoms
         double r;       //radius
         int count = 0;  //total number of collisions with wall or other particle
 
-        public Particle(double x, double y, double vX, double vY, double mass, double r)
+        public double PosX { get { return rX; } }
+        public double PosY { get { return rY; } }
+        public double Radius { get { return r; } }
+        public Color Color
+        {
+            get;
+            private set;
+        }
+
+        public Particle(double x, double y, double vX, double vY, double mass, double r, Color color)
         {
             rX = x;
             rY = y;
@@ -22,6 +28,7 @@ namespace _2DAtoms
             this.vY = vY;
             this.mass = mass;
             this.r = r;
+            this.Color = color;
         }
 
         public double collidesX()
@@ -32,7 +39,7 @@ namespace _2DAtoms
             }
             else if (vX > 0)
             {
-                return Math.Round((1 - r - rX) / vX,10);
+                return Math.Round((1 - r - rX) / vX, 10);
             }
             else
             {
@@ -62,11 +69,11 @@ namespace _2DAtoms
             double dy = j.rY - rY;                                      //difference in y position
             double dvx = j.vX - vX;                                     //difference in x velocity
             double dvy = j.vY - vY;                                     //difference in y velocity
-            double drdr = Math.Round((dx * dx) + (dy * dy),10);
-            double dvdv = Math.Round((dvx * dvx) + (dvy * dvy),10);
-            double dvdr = Math.Round((dvx * dx) + (dvy * dy),10);
-            double d = Math.Round((dvdr * dvdr) -( dvdv * (drdr - ((r + j.r)*(r + j.r)))),10);
-            
+            double drdr = Math.Round((dx * dx) + (dy * dy), 10);
+            double dvdv = Math.Round((dvx * dvx) + (dvy * dvy), 10);
+            double dvdr = Math.Round((dvx * dx) + (dvy * dy), 10);
+            double d = Math.Round((dvdr * dvdr) - (dvdv * (drdr - ((r + j.r) * (r + j.r)))), 10);
+
             if (dvdr >= 0)
             {
                 return Double.NegativeInfinity;
@@ -77,7 +84,7 @@ namespace _2DAtoms
             }
             else
             {
-                return Math.Round(-1 * ((dvdr + Math.Sqrt(d)) / dvdv),10);
+                return Math.Round(-1 * ((dvdr + Math.Sqrt(d)) / dvdv), 10);
             }
         }
         //this Particle is i, that Particle is j
@@ -90,7 +97,7 @@ namespace _2DAtoms
             double dvy = b.vY - vY;
             double dvdr = Math.Round((dvx * dx) + (dvy * dy), 10);
             double j = Math.Round((2 * mass * b.mass * dvdr) / (sigma * (mass + b.mass)), 10);
-            double jX = Math.Round((j * (b.rX - rX)) / sigma, 10); 
+            double jX = Math.Round((j * (b.rX - rX)) / sigma, 10);
             double jY = Math.Round((j * (b.rY - rY)) / sigma, 10);
             vX = Math.Round(vX + jX / mass, 10);
             vY = Math.Round(vY + jY / mass, 10);
@@ -121,6 +128,13 @@ namespace _2DAtoms
         public int getCollisionCount()
         {
             return count;
+        }
+
+        public override string ToString()
+        {
+            string toReturn = "";
+            toReturn += "(" + rX.ToString("0.00") + ", " + rY.ToString("0.00") + ")";
+            return toReturn;
         }
     }
 }
